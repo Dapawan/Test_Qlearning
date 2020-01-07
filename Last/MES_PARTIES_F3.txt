@@ -1,0 +1,498 @@
+
+
+ PARTIE N° 1**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-X-
+--O
+**Fin TOUR
+**TOUR n° 2 J1
+---
+-X-
+OXO
+**Fin TOUR
+**TOUR n° 3 J2
+X--
+-XO
+OXO
+**Fin TOUR
+**TOUR n° 4 J1
+XOX
+-XO
+OXO
+**Fin TOUR
+**TOUR n° 5 J2
+XOX
+-XO
+OXO
+**Fin TOUR
+
+
+ PARTIE N° 2**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-X-
+-O-
+**Fin TOUR
+**TOUR n° 2 J1
+O-X
+-X-
+-O-
+**Fin TOUR
+**TOUR n° 3 J2
+O-X
+-X-
+XO-
+**Fin TOUR
+
+
+ PARTIE N° 3**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-XO
+---
+**Fin TOUR
+**TOUR n° 2 J1
+X--
+-XO
+O--
+**Fin TOUR
+**TOUR n° 3 J2
+X--
+-XO
+O-X
+**Fin TOUR
+
+
+ PARTIE N° 4**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+OX-
+---
+**Fin TOUR
+**TOUR n° 2 J1
+O--
+OX-
+--X
+**Fin TOUR
+**TOUR n° 3 J2
+O-X
+OX-
+-OX
+**Fin TOUR
+**TOUR n° 4 J1
+O-X
+OX-
+XOX
+**Fin TOUR
+
+
+ PARTIE N° 5**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-X-
+O--
+**Fin TOUR
+**TOUR n° 2 J1
+XO-
+-X-
+O--
+**Fin TOUR
+**TOUR n° 3 J2
+XO-
+-X-
+O-X
+**Fin TOUR
+
+
+ PARTIE N° 6**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-X-
+--O
+**Fin TOUR
+**TOUR n° 2 J1
+-O-
+-X-
+-XO
+**Fin TOUR
+**TOUR n° 3 J2
+OO-
+-XX
+-XO
+**Fin TOUR
+**TOUR n° 4 J1
+OOO
+-XX
+XXO
+**Fin TOUR
+
+
+ PARTIE N° 7**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-XO
+---
+**Fin TOUR
+**TOUR n° 2 J1
+X--
+OXO
+---
+**Fin TOUR
+**TOUR n° 3 J2
+X--
+OXO
+--X
+**Fin TOUR
+
+
+ PARTIE N° 8**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-X-
+--O
+**Fin TOUR
+**TOUR n° 2 J1
+---
+-X-
+OXO
+**Fin TOUR
+**TOUR n° 3 J2
+X--
+OX-
+OXO
+**Fin TOUR
+**TOUR n° 4 J1
+X-X
+OXO
+OXO
+**Fin TOUR
+**TOUR n° 5 J2
+XXX
+OXO
+OXO
+**Fin TOUR
+
+
+ PARTIE N° 9**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-X-
+--O
+**Fin TOUR
+**TOUR n° 2 J1
+-O-
+-X-
+-XO
+**Fin TOUR
+**TOUR n° 3 J2
+OO-
+-XX
+-XO
+**Fin TOUR
+**TOUR n° 4 J1
+OOO
+-XX
+XXO
+**Fin TOUR
+
+
+ PARTIE N° 10**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+--O
+-X-
+---
+**Fin TOUR
+**TOUR n° 2 J1
+X-O
+-X-
+--O
+**Fin TOUR
+**TOUR n° 3 J2
+XOO
+-XX
+--O
+**Fin TOUR
+**TOUR n° 4 J1
+XOO
+-XX
+OXO
+**Fin TOUR
+**TOUR n° 5 J2
+XOO
+XXX
+OXO
+**Fin TOUR
+
+
+ PARTIE N° 11**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+OX-
+---
+**Fin TOUR
+**TOUR n° 2 J1
+O--
+OX-
+--X
+**Fin TOUR
+**TOUR n° 3 J2
+O-X
+OX-
+O-X
+**Fin TOUR
+
+
+ PARTIE N° 12**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-XO
+---
+**Fin TOUR
+**TOUR n° 2 J1
+X--
+-XO
+--O
+**Fin TOUR
+**TOUR n° 3 J2
+X--
+OXO
+X-O
+**Fin TOUR
+**TOUR n° 4 J1
+X-X
+OXO
+X-O
+**Fin TOUR
+
+
+ PARTIE N° 13**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-X-
+--O
+**Fin TOUR
+**TOUR n° 2 J1
+---
+-XO
+-XO
+**Fin TOUR
+**TOUR n° 3 J2
+X--
+OXO
+-XO
+**Fin TOUR
+**TOUR n° 4 J1
+X-X
+OXO
+OXO
+**Fin TOUR
+**TOUR n° 5 J2
+XXX
+OXO
+OXO
+**Fin TOUR
+
+
+ PARTIE N° 14**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+---
+-X-
+-O-
+**Fin TOUR
+**TOUR n° 2 J1
+O-X
+-X-
+-O-
+**Fin TOUR
+**TOUR n° 3 J2
+O-X
+-X-
+XO-
+**Fin TOUR
+
+
+ PARTIE N° 15**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+O--
+-X-
+---
+**Fin TOUR
+**TOUR n° 2 J1
+OO-
+-XX
+---
+**Fin TOUR
+**TOUR n° 3 J2
+OOX
+-XX
+-O-
+**Fin TOUR
+**TOUR n° 4 J1
+OOX
+-XX
+XO-
+**Fin TOUR
+
+
+ PARTIE N° 16**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+O--
+-X-
+---
+**Fin TOUR
+**TOUR n° 2 J1
+O--
+-XX
+--O
+**Fin TOUR
+**TOUR n° 3 J2
+O--
+-XX
+XOO
+**Fin TOUR
+**TOUR n° 4 J1
+OXO
+-XX
+XOO
+**Fin TOUR
+**TOUR n° 5 J2
+OXO
+-XX
+XOO
+**Fin TOUR
+
+
+ PARTIE N° 17**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+--O
+-X-
+---
+**Fin TOUR
+**TOUR n° 2 J1
+X-O
+-XO
+---
+**Fin TOUR
+**TOUR n° 3 J2
+X-O
+-XO
+--X
+**Fin TOUR
+
+
+ PARTIE N° 18**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+--O
+-X-
+---
+**Fin TOUR
+**TOUR n° 2 J1
+X-O
+-XO
+---
+**Fin TOUR
+**TOUR n° 3 J2
+X-O
+-XO
+--X
+**Fin TOUR
+
+
+ PARTIE N° 19**TOUR n° 0 J1
+---
+---
+---
+**Fin TOUR
+**TOUR n° 1 J2
+-O-
+-X-
+---
+**Fin TOUR
+**TOUR n° 2 J1
+OO-
+-XX
+---
+**Fin TOUR
+**TOUR n° 3 J2
+OOX
+OXX
+---
+**Fin TOUR
+**TOUR n° 4 J1
+OOX
+OXX
+X--
+**Fin TOUR

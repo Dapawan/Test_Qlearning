@@ -6,7 +6,6 @@ import matplotlib.pyplot
 
 class evolutionGen(object):
     """description of class"""
-
     #IA
     listeIA = []
     listeResultat = []
@@ -28,7 +27,7 @@ class evolutionGen(object):
     #Propriétés modifiables
     weightMax = 10.0
     weightMin = -10.0
-    nbrIAbest = 15 #Nbr paire pour pouvoir avoir père et mère
+    nbrIAbest = 4 #Nbr paire pour pouvoir avoir père et mère
     scoreInit = -10000000.0 #Le moins bon score de base
     weightAmplificateur = 1.0
 
@@ -144,7 +143,7 @@ class evolutionGen(object):
         valueWeight = self.weightMax + 1.0#On veut faire au moins 1 fois le while
         compteurMutationTest = 0
         premiereLoop = True
-        indexNeurone = randint(0,len(weights[self.indexMutation][0])-1)
+        #indexNeurone = randint(0,len(weights[self.indexMutation][0])-1)
             
         indexDim = randint(0,len(weights[self.indexMutation])-1)
 
@@ -154,7 +153,7 @@ class evolutionGen(object):
                 premiereLoop = False
 
             randomValue = (random() - 0.5) * self.weightAmplificateur
-            valueWeight = weights[self.indexMutation][indexDim][indexNeurone] 
+            valueWeight = weights[self.indexMutation][indexDim]
             valueWeight += randomValue
 
             if(compteurMutationTest > 50):
@@ -163,7 +162,7 @@ class evolutionGen(object):
 
             compteurMutationTest+=1
 
-        weights[self.indexMutation][indexDim][indexNeurone] += randomValue
+        weights[self.indexMutation][indexDim] += randomValue
 
         self.indexMutation+=2
 
@@ -188,7 +187,7 @@ class evolutionGen(object):
 
             #On réalise la mutation suivant un certain %
             randomValue = random() * 100.0
-            if(randomValue > 90.0):#30% de chance de mutation
+            if(randomValue > 100.0):#30% de chance de mutation
 
                 #On prend une meilleure IA au hasard
                 numeroIABest = randint(0,self.nbrIAbest-1)
@@ -204,7 +203,7 @@ class evolutionGen(object):
 
                 #On mute
                 #On set le poids muté
-                self.listeIA[i].reseau.set_weights(self.mutationAleatoire(self.listeIA[i]))
+                #self.listeIA[i].reseau.set_weights(self.mutationAleatoire(self.listeIA[i]))
 
             #reset du score
             self.listeIA[i].score = 0
@@ -226,11 +225,11 @@ class evolutionGen(object):
 
         for couche in range(0,len(weights),2):
             for dim in range(len(weights[couche])):
-                for neurone in range(len(weights[couche][dim])):
-                    #On réalise le choix du poids père ou mère suivant un certain %
-                    randomValue = random() * 100.0
-                    if(randomValue > 50.0):#50% de chance de prendre le poids du père
-                        weights[couche][dim][neurone] = weightPere[couche][dim][neurone]
+                #for neurone in range(len(weights[couche][dim])):
+                #On réalise le choix du poids père ou mère suivant un certain %
+                randomValue = random() * 100.0
+                if(randomValue > 50.0):#50% de chance de prendre le poids du père
+                    weights[couche][dim] = weightPere[couche][dim]
                     #else:#Comme on a déjà les poids de la mère
                         #weights[couche][dim][neurone] = weightMere[couche][dim][neurone]
 
