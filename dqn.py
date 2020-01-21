@@ -1,17 +1,27 @@
 # -*- coding: utf-8 -*-
-import random
-import gym
-import numpy as np
-from collections import deque
-from keras.models import Sequential
-from keras.layers import Dense,Convolution2D,Flatten,Conv1D,Conv2D
-from keras.optimizers import Adam
-import EnvJeu
-import matplotlib.pyplot
-import copy
+#import random
+#import gym
+#import numpy as np
+#from collections import deque
+#from keras.models import Sequential
+#from keras.layers import Dense,Convolution2D,Flatten,Conv1D,Conv2D
+#from keras.optimizers import Adam
+#import EnvJeu
+#import matplotlib.pyplot
+#import copy
+
+
+
+from stable_baselines.common.policies import MlpPolicy
+from stable_baselines.common.vec_env import DummyVecEnv
+from stable_baselines import PPO2
+from env import MorpionEnv
+
+
+
 
 EPISODES = 10000
-play = False
+play = True
 
 class DQNAgent:
     def __init__(self, state_size, action_size):
@@ -78,12 +88,19 @@ class DQNAgent:
 
 
 if __name__ == "__main__":
+
+    env = DummyVecEnv([lambda: MorpionEnv()])
+    model = PPO2(MlpPolicy, env, learning_rate=0.001)
+    model.learn(500000)
+
+
+
     #env = gym.make('CartPole-v1')
     env = EnvJeu.EnvJeu()
     state_size = 9#env.observation_space.shape[0]
     action_size = 9#env.action_space.n
     agent = DQNAgent(state_size, action_size)
-    #agent.load("./morpion-dqn_vs_self_v2.h5")
+    agent.load("./morpion-dqn_vs_self_v4.h5")
 
     #On enregistre quelques parties
     #for i in range(20):
@@ -129,7 +146,7 @@ if __name__ == "__main__":
             state = env.reset()
             print("Partie n° " + str(i))
             env.render()
-            state = np.reshape(state, [1, state_size])
+            state = np.reshape(state, [3, 3,1])
             while(done == False):
                 action = agent.act(state)
                 next_state, reward, done = env.step(action,True,False)
@@ -150,7 +167,7 @@ if __name__ == "__main__":
 
                 #On get les pieces J1
                 next_state = env.monMorpion.getListePionJ_UN()
-                next_state = np.reshape(next_state, [1, state_size])
+                next_state = np.reshape(next_state, [3, 3,1])
                 state = next_state
         
             
