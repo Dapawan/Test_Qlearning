@@ -1,27 +1,28 @@
 # -*- coding: utf-8 -*-
-#import random
-#import gym
-#import numpy as np
-#from collections import deque
-#from keras.models import Sequential
-#from keras.layers import Dense,Convolution2D,Flatten,Conv1D,Conv2D
-#from keras.optimizers import Adam
-#import EnvJeu
-#import matplotlib.pyplot
-#import copy
+import random
+import gym
+import numpy as np
+from collections import deque
+import keras
+from keras.models import Sequential
+from keras.layers import Dense,Convolution2D,Flatten,Conv1D,Conv2D
+from keras.optimizers import Adam
+import EnvJeu
+import matplotlib.pyplot
+import copy
 
 
 
-from stable_baselines.common.policies import MlpPolicy
-from stable_baselines.common.vec_env import DummyVecEnv
-from stable_baselines import PPO2
-from env import MorpionEnv
+#from stable_baselines.common.policies import MlpPolicy
+#from stable_baselines.common.vec_env import DummyVecEnv
+#from stable_baselines import PPO2
+#from env import MorpionEnv
 
 
 
 
 EPISODES = 10000
-play = True
+play = False
 
 class DQNAgent:
     def __init__(self, state_size, action_size):
@@ -42,12 +43,9 @@ class DQNAgent:
     def _build_model(self):
         # Neural Net for Deep-Q learning Model
         model = Sequential()
-        model.add(Conv2D(24, kernel_size=1,input_shape=(3, 3, 1),activation='relu'))
-        model.add(Conv2D(24, kernel_size=1,activation='relu'))
-        model.add(Conv2D(24, kernel_size=1,activation='relu'))
-        model.add(Flatten())
-        model.add(Dense(20, activation='relu'))
-        model.add(Dense(10, activation='relu'))
+        model.add(Dense(24, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(24, activation='relu'))
+        model.add(Dense(24, activation='relu'))
         model.add(Dense(self.action_size, activation='linear'))
         model.compile(loss='mse',
                       optimizer=Adam(lr=self.learning_rate))
@@ -89,9 +87,9 @@ class DQNAgent:
 
 if __name__ == "__main__":
 
-    env = DummyVecEnv([lambda: MorpionEnv()])
-    model = PPO2(MlpPolicy, env, learning_rate=0.001)
-    model.learn(500000)
+    #env = DummyVecEnv([lambda: MorpionEnv()])
+    #model = PPO2(MlpPolicy, env, learning_rate=0.001)
+    #model.learn(500000)
 
 
 
@@ -100,7 +98,7 @@ if __name__ == "__main__":
     state_size = 9#env.observation_space.shape[0]
     action_size = 9#env.action_space.n
     agent = DQNAgent(state_size, action_size)
-    agent.load("./morpion-dqn_vs_self_v4.h5")
+    #agent.load("C:/Users/oreil/source/repos/PythonApplicationEvolutionGen/PythonApplicationEvolutionGen/morpion-dqn_vs_self_v4.h5")
 
     #On enregistre quelques parties
     #for i in range(20):
@@ -146,7 +144,7 @@ if __name__ == "__main__":
             state = env.reset()
             print("Partie n° " + str(i))
             env.render()
-            state = np.reshape(state, [3, 3,1])
+            state = np.reshape(state, [1, state_size])
             while(done == False):
                 action = agent.act(state)
                 next_state, reward, done = env.step(action,True,False)
@@ -167,7 +165,7 @@ if __name__ == "__main__":
 
                 #On get les pieces J1
                 next_state = env.monMorpion.getListePionJ_UN()
-                next_state = np.reshape(next_state, [3, 3,1])
+                next_state = np.reshape(next_state, [1, state_size])
                 state = next_state
         
             
@@ -184,7 +182,7 @@ if __name__ == "__main__":
 
     for e in range(EPISODES):
         state = env.reset()
-        state = np.reshape(state, [3, 3,1])
+        state = np.reshape(state, [1, state_size])
         nbrTour = -1
         done = False
         moyTemp += scoreTot
@@ -228,7 +226,7 @@ if __name__ == "__main__":
                 flagWin = True
 
             #reward = copy.copy(scoreTot)
-            next_state = np.reshape(next_state, [3, 3,1])
+            next_state = np.reshape(next_state, [1, state_size])
             agent.memorize(copy.copy(state), copy.copy(action), copy.copy(reward), copy.copy(next_state), copy.copy(done))
             state = next_state
 
@@ -254,7 +252,7 @@ if __name__ == "__main__":
 
             #On gère le jeu adverse
             state = env.monMorpion.getListePionJ_DEUX()
-            state = np.reshape(state, [3, 3,1])
+            state = np.reshape(state, [1, state_size])
             epsilonOld = agent.epsilon
             #Permet de changer un peu les move
             agent.epsilon = 0.5
@@ -262,7 +260,7 @@ if __name__ == "__main__":
             #On remet la valeur save
             agent.epsilon = epsilonOld
             next_state, reward, done = env.step(action,False,False)
-            next_state = np.reshape(next_state, [3, 3,1])
+            next_state = np.reshape(next_state, [1, state_size])
             agent.memorize(copy.copy(state), copy.copy(action), copy.copy(reward), copy.copy(next_state), copy.copy(done))
 
             if(reward == env.rewardBadPlay):
@@ -271,7 +269,7 @@ if __name__ == "__main__":
 
             next_state = env.monMorpion.getListePionJ_UN()
             #conversion du state
-            next_state = np.reshape(next_state, [3, 3,1])
+            next_state = np.reshape(next_state, [1, state_size])
             state = next_state
 
             

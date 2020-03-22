@@ -32,7 +32,7 @@ class Morpion(object):
         self.tourJ1 = True
         self.tourJ2 = False
     
-
+    #Input un tableau avec les proba d'action --> On prend l'action ayant la plus forte proba
     def tourJ_UN(self,positionPieceTableau):
         #On exit si la partie est finit
         if(self.finPartie == True):
@@ -57,7 +57,7 @@ class Morpion(object):
         self.tourJ2 = True
 
 
-        #On teste si la partie est finit  
+        #On teste si la partie est finie  
         if( (self.finPartie == True) | (self.verificationFinPartie() == 0) ):
             self.victoireJ1 = True
             return 1
@@ -86,7 +86,7 @@ class Morpion(object):
         self.tourJ1 = True
         self.tourJ2 = False
 
-        #On teste si la partie est finit
+        #On teste si la partie est finie
         if( (self.finPartie == True) | (self.verificationFinPartie() == 0) ):
             self.victoireJ2 = True
             return 1
@@ -117,10 +117,12 @@ class Morpion(object):
 
             self.finPartie = True
             return 0
+
         self.finPartie = False
 
         return 1
 
+    #Retourne le tableau contenant les valeurs des pions selon J1 ou J2
     def getListePionJ_UN(self):
         return self.listePions
 
@@ -136,7 +138,7 @@ class Morpion(object):
                 listePionJ_DEUX.append(self.valeurAucunPion)
         return listePionJ_DEUX
 
-
+    #Retourne les indices du tableau où il n'y a aucune piece --> Action possible
     def getAllMovePossible(self):
         listeEmplacementDispo = []
         for i in range(len(self.listePions)):
@@ -145,42 +147,13 @@ class Morpion(object):
 
         return listeEmplacementDispo
 
-
+    #Indique si l'action est possible à l'index cible --> Pas de piece
     def verificationPositionnement(self,positionPieceATester):
         if(self.listePions[positionPieceATester] == self.valeurAucunPion):
             return True
         return False
         
-    def enregistrerPartie(self,listeMoveJ1J2,nomFichier,numero):
-        #On clear le fichier si c'est la premiere partie
-        if(numero == 1):
-            mon_fichier = open(nomFichier,"w")
-            mon_fichier.close()
-        stri = "\n\n PARTIE N° " + str(numero)
-        for i in range(listeMoveJ1J2.shape[0]):
-            #On coupe par 9
-            stri += "**TOUR n° " + str(i)
-            if(i%2 == 0):
-                stri += " J1\n"
-            else:
-                stri += " J2\n"
-            for a in range(listeMoveJ1J2.shape[1]):
-                valeur = listeMoveJ1J2[i][a]
-                if(valeur == self.valeurAucunPion):
-                    stri += "-"
-                elif(valeur == self.valeurPionJ1):
-                    stri += "X"
-                else:
-                    stri += "O"
-                if(((a+1) % 3) == 0):
-                    stri += "\n"
-            #Fin tour
-            stri += "**Fin TOUR\n"
-        #On save
-        mon_fichier = open(nomFichier,"a")
-        mon_fichier.write(stri)
-        mon_fichier.close()
-
+    #Format affichage d'un tour de morpion    
     def strToDisplay(self,listeMove):
         stri = ""
         for i in range(listeMove.shape[0]):
@@ -194,6 +167,31 @@ class Morpion(object):
             if(((i+1) % 3) == 0):
                 stri += "\n"
         return stri
+
+    #Permet d'enregistrer dans un format compréhensible les différents tours de jeu du morpion        
+    def enregistrerPartie(self,listeMoveJ1J2,nomFichier,numero):
+        #On clear le fichier si c'est la premiere partie
+        if(numero == 1):
+            mon_fichier = open(nomFichier,"w")
+            mon_fichier.close()
+        stri = "\n\n PARTIE N° " + str(numero)
+        for i in range(listeMoveJ1J2.shape[0]):
+            #On coupe par 9
+            stri += "**TOUR n° " + str(i)
+            if(i%2 == 0):
+                stri += " J1\n"
+            else:
+                stri += " J2\n"
+
+            stri += self.strToDisplay(listeMoveJ1J2[i])
+            #Fin tour
+            stri += "**Fin TOUR\n"
+        #On save
+        mon_fichier = open(nomFichier,"a")
+        mon_fichier.write(stri)
+        mon_fichier.close()
+
+    
 
     def simulationPartie(self, listePieceInput, listePieceOutput, nbrPartie):
 
